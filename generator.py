@@ -33,8 +33,8 @@ class Level(object):
       room_length = random.randint(4, 12)
       room_width = random.randint(4, 12)
       
-      for x in range(room_length):
-        for y in range(room_width):
+      for x in range(room_length - room_length):
+        for y in range(room_width - room_width):
           if self.level[room_x + x][room_y + y] == 1:
             break
       

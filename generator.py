@@ -24,18 +24,21 @@ class Level(object):
         
     return output
     
-  def genRoom(self, x_var=12, y_var=12):
+  def genRoom(self, x_var=[4,12], y_var=[4,12]):
     room_top = [random.randint(1, self.x -1), random.randint(1, self.y -1)]
-    room_bottom = [random.randint(room_top[0], room_top[0] + x_var), random.randint(room_top[1], room_top[1] + y_var)]
+    room_bottom = [random.randint(room_top[0] + x_var[0], room_top[0] + x_var[1]), random.randint(room_top[1] + y_var[0], room_top[1] + y_var[1])]
     
     return room_top, room_bottom
     
   def checkRoom(self, room):
     x1, y1 = room[0]
     x2, y2 = room[1]
+
+    if x1 > self.x -1 or x2 > self.x -1 or y1 > self.y -1 or y2 > self.y -1:
+        return False
     
-    for x in range(x1, x2):
-      for y in range(y1, y2):
+    for x in range(x1 -1, x2 + 1):
+      for y in range(y1 -1, y2 + 1):
         if self.level[x][y] == 1:
           return False
           

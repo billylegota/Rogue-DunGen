@@ -24,20 +24,31 @@ class Level(object):
         
     return output
     
-  def genRoom(self, attempts): # outputs 2 arrays, one of dimensions and one of location
-    output = []
+  def genRoom(self, x_var=12, y_var=12):
+    room_top = [random.randint(1, self.x -1), random.randint(1, self.y -1)]
+    room_bottom = [random.randint(room_top[0], room_top[0] + x_var), random.randint(room_top[1], room_top[1] + y_var)]
+    
+    return room_top, room_bottom
+    
+  def checkRoom(self, room):
+    x1, y1 = room[0]
+    x2, y2 = room[1]
+    
+    for x in range(x1, x2):
+      for y in range(y1, y2):
+        if self.level[x][y] == 1:
+          return False
+          
+    return True
+    
+  def placeRoom(self, attempts):
     for i in range(attempts):
-      room_x = random.randint(1, self.x -1)
-      room_y = random.randint(1, self.y -1)
-      
-      room_length = random.randint(4, 12)
-      room_width = random.randint(4, 12)
-      
-      for x in range(room_length - room_length):
-        for y in range(room_width - room_width):
-          if self.level[room_x + x][room_y + y] == 1:
-            break
-      
-      for x in range(room_length):
-        for y in range(room_width):
-          self.level[room_x + x][room_y + y] = 1
+      room = self.genRoom()
+      if self.checkRoom(room):
+        
+        x1, y1 = room[0]
+        x2, y2 = room[1]
+        
+        for x in range(x1, x2):
+          for y in range(y1, y2):
+            self.level[x][y] = 1

@@ -24,7 +24,20 @@ class Level(object):
         
     return output
     
-  def genRoom(self): # outputs 2 arrays, one of dimensions and one of location
+  def genRoom(self, attempts): # outputs 2 arrays, one of dimensions and one of location
     output = []
-    
-    
+    for i in range(attempts):
+      room_x = random.randint(1, self.x -1)
+      room_y = random.randint(1, self.y -1)
+      
+      room_length = random.randint(4, 12)
+      room_width = random.randint(4, 12)
+      
+      for x in range(room_length):
+        for y in range(room_width):
+          if self.level[room_x + x][room_y + y] == 1:
+            break
+      
+      for x in range(room_length):
+        for y in range(room_width):
+          self.level[room_x + x][room_y + y] = 1

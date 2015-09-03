@@ -1,6 +1,6 @@
 import generator
 
-Test = generator.Level("Test", 150, 75)
+Test = generator.Level("Test", 100, 75)
 Test.placeRooms(150)
 
 def printLevel(level):

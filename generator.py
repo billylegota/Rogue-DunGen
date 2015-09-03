@@ -45,7 +45,7 @@ class Level(object):
           
     return True
     
-  def placeRoom(self, attempts):
+  def placeRooms(self, attempts):
     for i in range(attempts):
       room = self.genRoom()
       if self.checkRoom(room):

@@ -13,6 +13,7 @@ class Level(object):
     self.x = x
     self.y = y
     
+    self.regions = []
     self.level = self.genLevel()
     
   def genLevel(self):
@@ -48,6 +49,7 @@ class Level(object):
     for i in range(attempts):
       room = self.genRoom()
       if self.checkRoom(room):
+        self.regions.append(room)
         
         x1, y1 = room[0]
         x2, y2 = room[1]

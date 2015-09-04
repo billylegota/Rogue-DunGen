@@ -13,4 +13,8 @@ def genMaze(level, x, y):
   def checkPoint(x, y):
     neighbors = 0
     for dir in dirs.keys():
+      neighbors += level[dirs[dir][0]][dirs[dir][1]] # Add the value of the North, South, East and Western tiles...
+    if neighbors == 1:
+      return True
+    return False
       

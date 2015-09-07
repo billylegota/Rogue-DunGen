@@ -17,4 +17,12 @@ def genMaze(level, x, y):
     if neighbors == 1:
       return True
     return False
+    
+  def checkNeighbors(x, y):
+    neighbors = []
+    for dir in dirs.keys():
+      if checkPoint(dirs[dir][0] + x, dirs[dir][1] + y):
+        neighbors.append([dirs[dir][0] + x, dirs[dir][1] + y])
+    return neighbors
+    
       

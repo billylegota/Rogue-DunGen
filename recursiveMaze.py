@@ -28,7 +28,7 @@ def genMaze(level, x, y):
 """
 
 def checkTile(level, x, y):
-  if 0 < x < len(level.length) - 1 and 0 < y < len(level.with) - 1:
+  if 0 < x < len(level.length) - 1 and 0 < y < len(level.width) - 1:
     if level.get(x, y) == 0:
       sum = 0
       for direction in [[x - 1, y], [x, y - 1], [x, y + 1], [x + 1, y]]:

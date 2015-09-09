@@ -38,7 +38,7 @@ def checkTile(level, x, y):
   return False
   
 
-def getNeighbors(leve, x, y):
+def getNeighbors(level, x, y):
   output = []
   for direction in [[x - 1, y], [x, y - 1], [x, y + 1], [x + 1, y]]:
     if checkTile(level, direction[0], direction[1]):
@@ -54,4 +54,9 @@ def recurse(level, stack):
     level.set(choices[0], choices[1], 1)
   else:
     stack.pop()
+    
+  if len(stack) > 0:
+    recurse(level, stack)
+  else:
+    return level
     

@@ -50,7 +50,7 @@ def getNeighbors(level, x, y):
 def recurse(level, stack):
   current = stack[len(stack) - 1]
   choices = getNeighbors(level, current[0], current[1])
-  if len choices > 0:
+  if len(choices) > 0:
     choice = random.choice(choices)
     stack.append(choice)
     level.set(choices[0], choices[1], 1)

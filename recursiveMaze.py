@@ -1,4 +1,5 @@
 import random
+import generator
 
 # What we need to do:
 # 1. Be able to tell wether a tile is ok for corridor forming.
@@ -44,7 +45,8 @@ def getNeighbors(level, x, y):
     if checkTile(level, direction[0], direction[1]):
       output.append(direction)
   return output
-  
+
+
 def recurse(level, stack):
   current = stack[len(stack) - 1]
   choices = getNeighbors(level, current[0], current[1])

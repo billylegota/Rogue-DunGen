@@ -29,7 +29,10 @@ def genMaze(level, x, y):
 """
 
 def checkTile(level, x, y):
-  if 0 < x < len(level.length) - 1 and 0 < y < len(level.width) - 1:
+  if 0 < x < level.x - 1 and 0 < y < level.y - 1:
+    for room in level.regions:
+      if x in range(room[0][0] - 1, room[1][0] + 1) and y in range(room[0][1] - 1, room[1][1] + 1): # Make sure the tile is not a part of a room!
+        return False
     if level.get(x, y) == 0:
       sum = 0
       for direction in [[x - 1, y], [x, y - 1], [x, y + 1], [x + 1, y]]:
@@ -53,12 +56,10 @@ def recurse(level, stack):
   if len(choices) > 0:
     choice = random.choice(choices)
     stack.append(choice)
-    level.set(choices[0], choices[1], 1)
+    level.set(choice[0], choice[1], 1)
   else:
     stack.pop()
-    
-  if len(stack) > 0:
-    recurse(level, stack)
-  else:
-    return level
+
+  return level, stack
+
     

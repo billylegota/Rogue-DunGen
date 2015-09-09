@@ -25,6 +25,12 @@ class Level(object):
         
     return output
     
+  def get(self, x, y):
+    return self.level[x][y]
+    
+  def set(self, x, y, value):
+    self.level[x][y] = value
+    
   def genRoom(self, x_var=[4,12], y_var=[4,12]):
     room_top = [random.randint(1, self.x -1), random.randint(1, self.y -1)]
     room_bottom = [random.randint(room_top[0] + x_var[0], room_top[0] + x_var[1]), random.randint(room_top[1] + y_var[0], room_top[1] + y_var[1])]

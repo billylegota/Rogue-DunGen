@@ -8,3 +8,13 @@ import random
 # 5. If there are no valid neighbors then pop the stack.
 # 6. GOTO 3 unless the stack is empty.
 # Print the map
+
+def genMesh(level):
+  output = []
+  for y in level.level[1::2]:
+    output.append(y[1::2])
+  return output
+  
+def connect(level, point1, point2):
+  # connect the 2 given points with tunnels.
+  return level

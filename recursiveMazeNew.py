@@ -9,12 +9,27 @@ import random
 # 6. GOTO 3 unless the stack is empty.
 # Print the map
 
-def genMesh(level):
-  output = []
-  for y in level.level[1::2]:
-    output.append(y[1::2])
-  return output
-  
-def connect(level, point1, point2):
-  # connect the 2 given points with tunnels.
-  return level
+class MazeGen(object):
+  def __init__(self, level):
+    self.level = level
+    
+  def getNeighbors(self, x, y):
+    output = []
+    for dir in [[x - 2, y], [x, y - 2], [x, y + 2], [x + 2, y]]:
+      try result = self.level.get(dir[0], dir[1]):
+        if result == 0:
+          output.append(dir)
+      except:
+        pass
+    return output
+    
+  def connect(self, p1, p2):
+    if p1[0] == p2[0]:
+      # hz
+      pass
+    elif p1[1] == p2[1]:
+      # vt
+      pass
+    else:
+      raise exception
+    

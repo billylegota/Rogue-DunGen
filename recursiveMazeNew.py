@@ -24,12 +24,22 @@ class MazeGen(object):
     return output
     
   def connect(self, p1, p2):
+    level.set(p2[0], p2[1], 1)
+    
     if p1[0] == p2[0]:
-      # hz
-      pass
+      if p1[0] > p2[0]:
+        level.set(p2[0] + 1, p2[1], 1)
+        
+      elif p1[0] < p2[0]:
+        level.set(p2[0] - 1, p2[1], 1)
+        
     elif p1[1] == p2[1]:
-      # vt
-      pass
+      if p1[1] > p2[1]:
+        level.set(p2[0], p2[1] + 1, 1)
+        
+      elif p1[1] < p2[1]:
+        level.set(p2[0], p2[1] - 1, 1)
+    
     else:
-      raise exception
+      raise IndexError
     

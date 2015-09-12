@@ -58,7 +58,7 @@ class MazeGen(object):
       
   def genMaze(self):
     while True:
-      attempt = [random.choice(range(level.x - 1)[1::2]), random.choice(range(level.y - 1)[1::2])]
+      attempt = [random.choice(range(self.level.x - 1)[1::2]), random.choice(range(self.level.y - 1)[1::2])]
       print attempt
       if self.level.get(attempt[0], attempt[1]) == 0:
         self.level.set(attempt[0], attempt[1], 1)

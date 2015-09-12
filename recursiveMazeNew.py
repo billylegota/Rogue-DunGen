@@ -12,6 +12,7 @@ import random
 class MazeGen(object):
   def __init__(self, level):
     self.level = level
+    self.stack = []
     
   def getNeighbors(self, x, y):
     output = []
@@ -43,4 +44,24 @@ class MazeGen(object):
     
     else:
       raise IndexError
+      
+  def iterate(self):
+    current = self.stack[len(self.stack) - 1]
+    options = self.getNeighbors(current[0], current[1])
+    
+    if len(options) > 0:
+      option = random.choice(options)
+      self.connect(current, option)
+      self.stack.append(option)
+    else:
+      self.stack.pop()
+      
+  def genMaze(self):
+    while True:
+      attempt = [random.randint(0, level.x - 1)[1::2], random.randint(0, level.y - 1)[1::2]]
+      print attempt
+      if self.level.get(attempt[0], attempt[1]) == 0:
+        self.level.set(attempt[0], attempt[1], 1)
+        self.stack.append(attempt)
+        break
     

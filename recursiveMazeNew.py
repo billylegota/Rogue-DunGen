@@ -30,17 +30,17 @@ class MazeGen(object):
     
     if p1[0] == p2[0]:
       if p1[0] > p2[0]:
-        level.set(p2[0] + 1, p2[1], 1)
+        self.level.set(p2[0] + 1, p2[1], 1)
         
       elif p1[0] < p2[0]:
-        level.set(p2[0] - 1, p2[1], 1)
+        self.level.set(p2[0] - 1, p2[1], 1)
         
     elif p1[1] == p2[1]:
       if p1[1] > p2[1]:
-        level.set(p2[0], p2[1] + 1, 1)
+        self.level.set(p2[0], p2[1] + 1, 1)
         
       elif p1[1] < p2[1]:
-        level.set(p2[0], p2[1] - 1, 1)
+        self.level.set(p2[0], p2[1] - 1, 1)
     
     else:
       raise IndexError

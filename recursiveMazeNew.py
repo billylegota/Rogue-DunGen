@@ -17,7 +17,7 @@ class MazeGen(object):
     output = []
     for dir in [[x - 2, y], [x, y - 2], [x, y + 2], [x + 2, y]]:
       try:
-        result = self.level.get(dir[0], dir[1]):
+        result = self.level.get(dir[0], dir[1])
         if result == 0:
           output.append(dir)
       except:

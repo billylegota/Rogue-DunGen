@@ -16,7 +16,8 @@ class MazeGen(object):
   def getNeighbors(self, x, y):
     output = []
     for dir in [[x - 2, y], [x, y - 2], [x, y + 2], [x + 2, y]]:
-      try result = self.level.get(dir[0], dir[1]):
+      try:
+        result = self.level.get(dir[0], dir[1]):
         if result == 0:
           output.append(dir)
       except:

@@ -1,8 +1,9 @@
 import generator
-import recursiveMaze
+import recursiveMazeNew
 
-Test = generator.Level("Test", 100, 75)
-Test.placeRooms(15)
+Test = generator.Level("Test", 115, 75)
+
+#Test.placeRooms(15)
 
 def printLevel(level):
   output = ""
@@ -15,8 +16,9 @@ def printLevel(level):
     output += "\n"
   return output
   
-print printLevel(Test)
+#print printLevel(Test)
 
+"""
 stack = []
 stack.append([20,20])
 Test.set(20,20,1)
@@ -26,4 +28,9 @@ while True:
     Test, stack = recursiveMaze.recurse(Test, stack)
   else:
     break
+print printLevel(Test)
+"""
+
+Gen = recursiveMazeNew.MazeGen(Test)
+Gen.genMaze()
 print printLevel(Test)

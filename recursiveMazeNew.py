@@ -19,28 +19,28 @@ class MazeGen(object):
     for dir in [[x - 2, y], [x, y - 2], [x, y + 2], [x + 2, y]]:
       try:
         result = self.level.get(dir[0], dir[1])
-        if result == 0:
+        if result == 0 and 1 <= dir[0] < self.level.x - 1 and 1 <= dir[1] < self.level.y - 1:
           output.append(dir)
       except:
         pass
     return output
     
   def connect(self, p1, p2):
-    level.set(p2[0], p2[1], 1)
+    self.level.set(p2[0], p2[1], 1)
     
     if p1[0] == p2[0]:
-      if p1[0] > p2[0]:
-        self.level.set(p2[0] + 1, p2[1], 1)
-        
-      elif p1[0] < p2[0]:
-        self.level.set(p2[0] - 1, p2[1], 1)
-        
-    elif p1[1] == p2[1]:
       if p1[1] > p2[1]:
         self.level.set(p2[0], p2[1] + 1, 1)
         
       elif p1[1] < p2[1]:
         self.level.set(p2[0], p2[1] - 1, 1)
+        
+    elif p1[1] == p2[1]:
+      if p1[0] > p2[0]:
+        self.level.set(p2[0] + 1, p2[1], 1)
+        
+      elif p1[0] < p2[0]:
+        self.level.set(p2[0] - 1, p2[1], 1)
     
     else:
       raise IndexError
@@ -64,4 +64,7 @@ class MazeGen(object):
         self.level.set(attempt[0], attempt[1], 1)
         self.stack.append(attempt)
         break
+
+    while len(self.stack) != 0:
+      self.iterate()
     

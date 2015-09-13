@@ -31,13 +31,14 @@ class Level(object):
   def set(self, x, y, value):
     self.level[x][y] = value
     
-  def genRoom(self, x_var=[4,12], y_var=[4,12]):
-    room_top = [random.randint(1, self.x -1), random.randint(1, self.y -1)]
-    room_bottom = [random.randint(room_top[0] + x_var[0], room_top[0] + x_var[1]), random.randint(room_top[1] + y_var[0], room_top[1] + y_var[1])]
-    
+  def genRoom(self, x_var=range(4,12)[1::2], y_var=range(4,12)[1::2]):
+    room_top = [random.choice(range(self.x - 1)[1::2]), random.choice(range(self.y - 1)[1::2])]
+    room_bottom = [room_top[0] + random.choice(x_var), room_top[1] + random.choice(y_var)]
+
     return room_top, room_bottom
     
   def checkRoom(self, room):
+    print room
     x1, y1 = room[0]
     x2, y2 = room[1]
 

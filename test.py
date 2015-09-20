@@ -1,7 +1,7 @@
-import generatorNew
-import recursiveMazeNew
+import generator
+import recursiveMaze
 
-Test = generatorNew.Level("Test", 115, 75)
+Test = generator.Level("Test", 115, 75)
 
 Test.placeRooms(15)
 
@@ -18,6 +18,6 @@ def printLevel(level):
   
 print printLevel(Test)
 
-Gen = recursiveMazeNew.MazeGen(Test)
+Gen = recursiveMaze.MazeGen(Test)
 Gen.genMaze()
 print printLevel(Test)

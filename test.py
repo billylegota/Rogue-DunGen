@@ -12,24 +12,11 @@ def printLevel(level):
       if level.level[x][y] == 0:
         output += "#"
       elif level.level[x][y] == 1:
-        output += " "
+        output += "."
     output += "\n"
   return output
   
 print printLevel(Test)
-
-"""
-stack = []
-stack.append([20,20])
-Test.set(20,20,1)
-
-while True:
-  if len(stack) > 0:
-    Test, stack = recursiveMaze.recurse(Test, stack)
-  else:
-    break
-print printLevel(Test)
-"""
 
 Gen = recursiveMazeNew.MazeGen(Test)
 Gen.genMaze()

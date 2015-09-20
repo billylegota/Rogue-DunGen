@@ -15,22 +15,25 @@ class Level(object):
     self.x = x
     self.y = y
     
+    # Stores the regions (rooms) as an array of rectangles.
     self.regions = []
     
+    # Stores the level data as a 2D array or integers
     self.level = []
     for x in range(self.x):
       self.level.append([])
       for y in range(self.y):
         self.level[x].append(0)
 
+  # Hook for getting the value of a cell (Should probably be removed)
   def get(self, x, y):
     return self.level[x][y]
 
-  
+  # Hook for setting the value of a cell (Should probably be removed)
   def set(self, x, y, value):
     self.level[x][y] = value
 
-
+  # Attempts to place a series of rectangular regions ranging from 4x4 to 12x12 on the map (only even sizes)
   def genRooms(self, attempts):
     for i in range(attempts):
       x1 = random.choice(range(1, self.x - 1)[0::2])
@@ -52,7 +55,7 @@ class Level(object):
             for y in range(y1, y2):
               self.level[x][y] = 1
               
-  
+  # Fills the map with mazes.
   def genMaze(self):
     self.stack = []
 
@@ -96,10 +99,12 @@ class Level(object):
             self.set(x2 - 1, y2, 1)
       else:
         self.stack.pop()
-
+  
+  # Combines all of the seperate regions with doors.
   def unify(self):
-    pass # This is where the region unification code will go
+    pass
 
-  def placeStairs(self, number):
-    pass # This is where the stairwells will be placed
+  # Places n up and n down stairwells (do not have to correspond w/ the stairwells directly above or below)
+  def placeStairs(self, up, down):
+    pass
 

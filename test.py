@@ -1,7 +1,6 @@
-import generatorFull2
-import recursiveMaze
+import generator
 
-Test = generatorFull2.Level(115, 75)
+Test = generator.Level(115, 75)
 
 Test.genRooms(30)
 

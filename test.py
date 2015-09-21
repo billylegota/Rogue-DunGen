@@ -1,6 +1,6 @@
 import generator
 
-Test = generator.Level(115, 75)
+Test = generator.Level(85, 25)
 
 Test.genRooms(30)
 
@@ -14,8 +14,6 @@ def printLevel(level):
         output += "."
     output += "\n"
   return output
-  
-print printLevel(Test)
 
 Test.genMaze()
 

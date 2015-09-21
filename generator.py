@@ -65,6 +65,7 @@ class Level(object):
       if self.get(attempt[0], attempt[1]) == 0:
         self.set(attempt[0], attempt[1], 1)
         self.stack.append(attempt)
+        self.regions.append([attempt, attempt]) # Add the maze start to the regions list.
         break
 
     while len(self.stack) != 0:
@@ -101,7 +102,7 @@ class Level(object):
         self.stack.pop()
   
   # Combines all of the seperate regions with doors.
-  def unify(self):
+  def unify(self, doorChance=0.25): # Chance of there being a second doorway leading into a region.
     pass
 
   # Places n up and n down stairwells (do not have to correspond w/ the stairwells directly above or below)

@@ -1,6 +1,6 @@
-import Generator
+import generator
 
-Test = Generator.Level(85, 25)
+Test = generator.Level(85, 25)
 
 Test.genRooms(30)
 

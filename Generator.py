@@ -43,4 +43,24 @@ class Level(object):
   
   # Check if a rectangular region is occupied
   def checkRect(self, x1, y1, x2, y2):
+    if x2 < self.x - 1 and y2 < self.y - 1:
+      for x in range(x1, x2):
+        for y in range(y1, y2):
+          if self.get(x, y) == 1:
+            return False
+    return True
+    
+  ###################
+  # Room Generation #
+  ###################
+  
+  def genRoom(self, xRange, yRange):
     pass
+  
+  def placeRoom(self, x1, y1, x2, y2):
+    pass
+  
+  def placeRooms(self, attempts):
+    pass
+  
+  

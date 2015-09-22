@@ -56,14 +56,32 @@ class Level(object):
   
   # Generate a single random room.
   def genRoom(self, xRange, yRange):
-    pass
+    while True:
+      x1 = random.choice(range(1, self.x - 1))
+      y1 = random.choide(range(1, self.y - 1))
+      
+      x2 = x1 + random.choice(xRange)
+      y2 = y1 + random.choice(yRange)
+      
+      # Make sure the room is valid.
+      if self.checkRect(x1, y1, x2, y2):
+        return x1, y1, x2, y2
   
   # Place a room that has been checked.
   def placeRoom(self, x1, y1, x2, y2):
-    pass
+    for x in range(x1, x2):
+      for y in range(y1, y2):
+        self.set(x, y, 1)
   
   # Attempt to place a room attempts times. (More attempts / area = more dense room placement)/
   def placeRooms(self, attempts, xRange=range(4,12)[0::2], yRange=range(4,12)[0::2]):
-    pass
+    for i in range(attempts):
+      room = self.genRoom(xRange, yRange)
+      self.placeRoom(room)
+      self.regions.append(room)
+      
+  ###################
+  # Maze Generation #
+  ###################
   
-  
+  # Maze stuff goes here

@@ -54,13 +54,16 @@ class Level(object):
   # Room Generation #
   ###################
   
+  # Generate a single random room.
   def genRoom(self, xRange, yRange):
     pass
   
+  # Place a room that has been checked.
   def placeRoom(self, x1, y1, x2, y2):
     pass
   
-  def placeRooms(self, attempts):
+  # Attempt to place a room attempts times. (More attempts / area = more dense room placement)/
+  def placeRooms(self, attempts, xRange=range(4,12)[0::2], yRange=range(4,12)[0::2]):
     pass
   
   

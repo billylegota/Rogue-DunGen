@@ -2,7 +2,7 @@
 # All the code is in one massive class (which imports a maze generator so that you may use your own.
 
 import random
-from maze import backtracker as mazeGen
+#from maze import backtracker as mazeGen
 
 class Level(object):
   def __init__(self, x, y):

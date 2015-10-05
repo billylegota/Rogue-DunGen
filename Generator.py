@@ -39,7 +39,7 @@ class Level(object):
     return output
 
 
-  # Get the number of cells offset by one that are un-carved
+  # Get the positions of the cells offset by one that are un-carved
   def getValidNeighbors(self, x, y):
     output = []
     if self.checkPoint(x, y):
@@ -93,3 +93,23 @@ class Level(object):
       if self.checkRect(room[0], room[1], room[2], room[3]):
         self.placeRoom(room[0], room[1], room[2], room[3])
         self.regions.append(room)
+
+
+  ###################
+  # Maze Generation #
+  ###################
+  
+  
+  # Outline
+  # 1. Choose a random point that is at an odd coord and has no carved out neighbours. Add this to the stack.
+  # 2. Find any points offset by 2 from the current point that are not carved.
+  # 3. Choose any of these points and connect it to the current point then append the new point to the stack.
+  # 4. Keep repeating steps 2 - 3 until the stack is empty. If there are no valid neighbours then pop from the stack.
+  
+  def findValidPoints(self):
+    output = []
+    for x in range(1, self.x - 1)[0::2]:
+      for y in range(1, self.y - 1)[0::2]:
+        if self.sumNeighbors(x, y) == 0:
+          output.append([x, y])
+    return output

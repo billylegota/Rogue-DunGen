@@ -1,4 +1,4 @@
-# Re-implamentation of the Rogue-DunGen Dungeon generator with more ??classiness??
+# Re-implamentation of the Rogue-DunGen Dungeon generator with more classiness
 
 import random
 
